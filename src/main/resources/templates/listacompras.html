@@ -23,6 +23,7 @@
 					<th>PRODUCTO</th>
 					<th>CANTIDAD</th>
 					<th>TOTAL</th>
+					<th>ACCIONES</th>
 				</tr>
 			</thead>
 			<tbody class="tbody-light">
@@ -31,6 +32,10 @@
 					<td th:text="${c.producto.nombre}"></td>
 					<td th:text="${c.cantidad}"></td>
 					<td th:text="${c.getTotal()}"></td>
+					<td> 
+						<button class="btn btn-success" >Modificar</button>
+						<button class="btn btn-danger " >Eliminar</button>
+					 </td>
 				</tr>
 			</tbody>
 			</table> 
