@@ -102,4 +102,10 @@ public class ProductoServiceImp implements IProductoService {
 		this.productos.add(new Producto(111,"Arroz",80.2,"Peleador",5));
 		this.productos.add(new Producto(112,"Yerba",100.5,"Amanda",3));
 	}
+
+	@Override
+	public void deleteProducto(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

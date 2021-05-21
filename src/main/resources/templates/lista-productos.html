@@ -16,7 +16,8 @@
 			 <div class="container bg-danger text-white p-3 mt-3 text-center">
 			    <h3>LISTADO DE PRODUCTOS</h3>
 			 </div>
-			<table class="table bg-white">
+			<div class="table-responsive">
+				<table class="table bg-white">
 			<thead class="thead-ligth">
 				<tr>
 					<th>CODIGO</th>
@@ -35,12 +36,13 @@
 					<td th:text="${e.precio}"></td>
 					<td th:text="${e.stock}"></td>
 					<td> 
-						<button class="btn btn-success" >Modificar</button>
-						<button class="btn btn-danger " >Eliminar</button>
+						<a th:href="@{/producto/editar/}+${e.codigo}" class="btn btn-success" >Modificar</a>
+						<a th:href="@{/producto/borrar/}+${e.codigo}" class="btn btn-danger " >Borrar</a>
 					 </td>
 				</tr>
 			</tbody>
 			</table> 
+			</div>
 			<a href="/producto" class="btn btn-danger">Volver al formulario</a>
 		</section>
 		

@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.tp7.controller;
 
+import java.util.Optional;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +69,23 @@ public class ProductoController {
 		model.addAttribute("productoList", productoService.getAllProductos());
 		return "lista-productos";
 	}
+	
+	@GetMapping("/producto/borrar/{id}")
+	public ModelAndView getProductoDeletPage(@PathVariable(value = "id")int id) {
+		ModelAndView modelView = new ModelAndView("redirect:/producto/lista");
+		productoService.deleteProducto(id);
+		return modelView;
+	}
+	
+	@GetMapping("/producto/editar/{id}")
+	public ModelAndView getProductoModPage(@PathVariable(value = "id")int id) {
+		ModelAndView modelView=new ModelAndView("nuevo");
+		Optional<Producto> producto=productoService.getUnProducto(id);
+		modelView.addObject("producto", producto);
+		
+		return modelView;
+	}
+	
+	
 	
 }

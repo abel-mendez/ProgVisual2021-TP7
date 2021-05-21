@@ -59,4 +59,9 @@ public class ProductoServiceImpMysql implements IProductoService {
 		return prod;
 	}
 
+	@Override
+	public void deleteProducto(int id) {
+		productoRepo.deleteById(id);
+	}
+
 }
