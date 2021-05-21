@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.tp7.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import ar.edu.unju.fi.tp7.model.Producto;
 
@@ -16,5 +17,5 @@ public interface IProductoService {
 	
 	public List<Producto> getAllProductos();
 	//14-5 VDE
-	public Producto getUnProducto(int codigo);
+	public Optional<Producto> getUnProducto(int codigo);
 }
