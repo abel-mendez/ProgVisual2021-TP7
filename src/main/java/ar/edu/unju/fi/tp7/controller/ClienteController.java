@@ -19,7 +19,8 @@ public class ClienteController {
 
 	
 	@Autowired
-	@Qualifier("clienteRamImp")
+	//@Qualifier("clienteRamImp")
+	@Qualifier("clienteServiceMysql")
 	private IClienteService clienteService;
 	
 	private static final Log LOGGER = LogFactory.getLog(ClienteController.class);
