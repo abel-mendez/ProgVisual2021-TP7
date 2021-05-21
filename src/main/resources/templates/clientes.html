@@ -49,8 +49,8 @@
 										<p><span th:text="'C) ' + ${e.getTiempoCumple()}"></span></p> 
 									</td> 
 									<td> 
-										<button class="btn btn-success" >Modificar</button>
-										<button class="btn btn-danger " >Eliminar</button>
+										<a th:href="@{/cliente/editar/}+${e.id}" class="btn btn-success">Editar</a>
+										<a th:href="@{/cliente/borrar/}+${e.id}" class="btn btn-danger">Borrar</a>
 									 </td>
 								</tr>
 							</tbody>

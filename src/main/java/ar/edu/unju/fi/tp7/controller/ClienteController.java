@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.tp7.controller;
 
+import java.util.Optional;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -61,6 +64,23 @@ public class ClienteController {
 		LOGGER.info("RESULT : VISUALIZA LA PAGINA clientes.html");
 		return modelView;
 	
+	}
+	
+	@GetMapping("/cliente/editar/{id}")
+	public ModelAndView getClienteModPage(@PathVariable(value = "id")Long id) {
+		ModelAndView modelView=new ModelAndView("nuevocliente");
+		Optional<Cliente> cliente=clienteService.getClienteById(id);
+		modelView.addObject("cliente", cliente);
+		
+		return modelView;
+	}
+	
+	@GetMapping("/cliente/borrar/{id}")
+	public ModelAndView getClienteDeletPage(@PathVariable(value = "id")Long id) {
+		ModelAndView modelView = new ModelAndView("redirect:/cliente/listado");
+		clienteService.deletClienteById(id);
+		
+		return modelView;
 	}
 	
 }
