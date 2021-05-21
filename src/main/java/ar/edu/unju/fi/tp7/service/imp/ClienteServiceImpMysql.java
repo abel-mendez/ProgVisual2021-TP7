@@ -2,6 +2,7 @@ package ar.edu.unju.fi.tp7.service.imp;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,21 @@ public class ClienteServiceImpMysql implements IClienteService {
 	public Cliente getCliente() {
 		// TODO Auto-generated method stub
 		return this.cliente;
+	}
+
+	@Override
+	//recupera el empleado por id
+	public Optional<Cliente> getClienteById(Long id) {
+		// TODO Auto-generated method stub
+		Optional<Cliente> cliente=clienteRepo.findById(id);
+		return cliente;
+	}
+
+	@Override
+	public void deletClienteById(Long id) {
+		// TODO Auto-generated method stub
+		clienteRepo.deleteById(id);
+		
 	}
 
 }
