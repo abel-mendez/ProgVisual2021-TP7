@@ -8,6 +8,8 @@ import java.time.temporal.ChronoUnit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,6 +20,8 @@ import org.springframework.stereotype.Component;
 @Component("clienteObj")
 public class Cliente {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	@Column(name = "cli_DNI")
 	private int nroDocumento;
 	@Column(name = "cli_TipoDoc")
@@ -189,19 +193,6 @@ public class Cliente {
 		this.fechaUltimaCompra = fechaUltimaCompra;
 	}
 	
-	
-	
-
-	@Override
-	public String toString() {
-		return "Cliente [tipoDocumento=" + tipoDocumento + ", nroDocumento=" + nroDocumento + ", nombreApellido="
-				+ nombreApellido + ", email=" + email + ", password=" + password + ", fechaNacimiento="
-				+ fechaNacimiento + ", edad=" + edad + ", codigoAreaTelefono=" + codigoAreaTelefono + ", nroTelefono="
-				+ nroTelefono + ", fechaUltimaCompra=" + fechaUltimaCompra + "]";
-	}
-
-
-
 
 	public int getEdad() {
 		
@@ -212,6 +203,41 @@ public class Cliente {
 			return edad;
 		}
 	
+	
+	public Long getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	
+
+
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", nroDocumento=" + nroDocumento + ", tipoDocumento=" + tipoDocumento
+				+ ", nombreApellido=" + nombreApellido + ", email=" + email + ", password=" + password
+				+ ", fechaNacimiento=" + fechaNacimiento + ", edad=" + edad + ", codigoAreaTelefono="
+				+ codigoAreaTelefono + ", nroTelefono=" + nroTelefono + ", fechaUltimaCompra=" + fechaUltimaCompra
+				+ "]";
+	}
+
+
+
+
 	public String getTiempoDesdeUltimaCompra(){
 		LocalDate hoy = LocalDate.now();
 		LocalDate fechaInicial=this.fechaUltimaCompra;
