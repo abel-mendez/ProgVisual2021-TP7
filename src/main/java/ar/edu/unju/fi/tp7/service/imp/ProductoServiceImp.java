@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.tp7.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -71,7 +72,7 @@ public class ProductoServiceImp implements IProductoService {
 	
 	//14-5 Se busca un producto por codigo 
 	@Override
-	public Producto getUnProducto(int codigo) {
+	public Optional<Producto> getUnProducto(int codigo) {
 		// TODO Auto-generated method stub
 		Producto prod =new Producto();
 		//for each
@@ -88,7 +89,8 @@ public class ProductoServiceImp implements IProductoService {
 				}
 			 
 		 }
-		return prod;
+		//return prod;
+		return null;
 	}
 	
 	
