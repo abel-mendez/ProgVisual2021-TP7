@@ -1,6 +1,8 @@
 package ar.edu.unju.fi.tp7.service.imp;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,18 @@ public class CompraServiceImp implements ICompraService {
 	public Compra getCompra() {
 		// TODO Auto-generated method stub
 		return this.compra;
+	}
+
+	@Override
+	public Optional<Compra> getCompraById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteCompraById(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
