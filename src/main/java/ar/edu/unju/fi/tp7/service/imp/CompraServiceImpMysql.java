@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.tp7.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -49,6 +50,19 @@ public class CompraServiceImpMysql implements ICompraService{
 	public Compra getCompra() {
 		// TODO Auto-generated method stub
 		return this.compra;
+	}
+
+	@Override
+	public Optional<Compra> getCompraById(Long id) {
+		// TODO Auto-generated method stub
+		Optional<Compra> comp = compraRepo.findById(id);
+		return comp;
+	}
+
+	@Override
+	public void deleteCompraById(Long id) {
+		// TODO Auto-generated method stub
+		compraRepo.deleteById(id);
 	}
 
 
