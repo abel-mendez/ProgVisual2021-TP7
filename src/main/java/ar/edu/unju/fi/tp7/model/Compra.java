@@ -20,7 +20,7 @@ public class Compra {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="COMP_ID")
+	@Column(name="COM_ID")
 	private Long id;
 	
 	@Autowired
@@ -28,9 +28,9 @@ public class Compra {
 	@JoinColumn(name="PRO_CODIGO")
 	private Producto producto;
 	
-	@Column(name="COMP_CANTIDAD")
+	@Column(name="COM_CANTIDAD")
 	private int cantidad;
-	@Column(name="COMP_TOTAL")
+	@Column(name="COM_TOTAL")
 	private Double total;
 
 public Compra() {

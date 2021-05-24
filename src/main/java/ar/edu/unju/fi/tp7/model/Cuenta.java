@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Component;
 @Component("unaCuenta")
 public class Cuenta {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cue_Id")
 	private Long id;
 	@Column(name="cue_Saldo")
@@ -28,9 +31,8 @@ public class Cuenta {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cuenta(Long id, Double saldo, LocalDate fechaCreacion, String estado) {
+	public Cuenta(Double saldo, LocalDate fechaCreacion, String estado) {
 		super();
-		this.id = id;
 		this.saldo = saldo;
 		this.fechaCreacion = fechaCreacion;
 		this.estado = estado;
