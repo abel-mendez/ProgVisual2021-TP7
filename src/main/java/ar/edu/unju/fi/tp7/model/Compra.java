@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.tp7.model;
 
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,7 +28,7 @@ public class Compra {
 	@Autowired
 	@ManyToOne(fetch= FetchType.LAZY)
 	@JoinColumn(name="PRO_CODIGO")
-	private Producto producto;
+	private Optional<Producto> producto;
 	
 	@Column(name="COMP_CANTIDAD")
 	private int cantidad;
@@ -44,7 +46,7 @@ public Compra() {
  * @param cantidad
  * @param total
  */
-public Compra(Producto producto, int cantidad) {
+public Compra(Optional<Producto> producto, int cantidad) {
 	super();
 	this.producto = producto;
 	this.cantidad = cantidad;
@@ -71,7 +73,7 @@ public void setId(Long id) {
 /**
  * @return the producto
  */
-public Producto getProducto() {
+public Optional<Producto> getProducto() {
 	return producto;
 }
 
@@ -79,7 +81,7 @@ public Producto getProducto() {
 /**
  * @param producto the producto to set
  */
-public void setProducto(Producto producto) {
+public void setProducto(Optional<Producto> producto) {
 	this.producto = producto;
 }
 
