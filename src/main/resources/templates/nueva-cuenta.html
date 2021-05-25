@@ -22,7 +22,7 @@
 				     <div class="card shadows-lg p-3 mb-5 bg-white">
 				        <div class="card-header bg-danger text-white text-center">FORMULARIO-CUENTA</div>
 				        <div class="card-body">
-				        	<form  th:action="@{/cuenta/guardar}" th:object="${cuenta}" method="post">
+				        	<form  th:action="@{/cuenta/guardar}" th:object="${cuenta}" method="get">
 				        		<input type="hidden" th:field="*{id}"/>
 				        		<div class="form-group">
 							     <label for="Saldo" class="font-italic">Saldo</label>
@@ -30,7 +30,7 @@
 								 >
 							    </div>
 							    <div class="form-group">
-							    	<select th:field="*{cliente.id}" name="cliente" id="cliente" class="form-select" >
+							    	<select name="cliente" id="cliente" class="form-select" >
 								  		<option th:each="c: ${clientes}" th:value="${c.id}" ><span th:text="${c.nombreApellido}" ></span></option>
 									</select>
 							    </div>
