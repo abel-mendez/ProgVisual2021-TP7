@@ -80,13 +80,7 @@ public class ProductoController {
 	@GetMapping("/producto/editar/{id}")
 	public ModelAndView getProductoModPage(@PathVariable(value = "id")int id) {
 		ModelAndView modelView=new ModelAndView("nuevo");
-		Optional <Producto> productoOP=productoService.getUnProducto(id);
-		Producto producto=new Producto();
-		producto.setCodigo(productoOP.get().getCodigo());
-		producto.setMarca(productoOP.get().getMarca());
-		producto.setNombre(productoOP.get().getNombre());
-		producto.setPrecio(productoOP.get().getPrecio());
-		modelView.addObject("producto", producto);
+		modelView.addObject("producto", productoService.getUnProducto(id).get());
 		return modelView;
 	}
 	

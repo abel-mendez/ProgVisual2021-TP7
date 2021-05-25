@@ -37,14 +37,7 @@ public class CompraController {
 		Compra comp = new Compra();
 		comp.setId(Long.valueOf(id));
 		comp.setCantidad(Integer.valueOf(cantidad));
-		Optional <Producto> productoOP= this.productoService.getUnProducto(Integer.valueOf(codigo));
-		Producto producto=new Producto();
-		producto.setCodigo(productoOP.get().getCodigo());
-		producto.setMarca(productoOP.get().getMarca());
-		producto.setNombre(productoOP.get().getNombre());
-		producto.setPrecio(productoOP.get().getPrecio());
-		System.out.println("descripcion del producto"+producto);
-		comp.setProducto(producto);
+		comp.setProducto( this.productoService.getUnProducto(Integer.valueOf(codigo)).get());
 		comp.setTotal(comp.getTotal());
 		LOGGER.info("CONTROLLER : CompraController with /guardarCompra post method");
 		compraService.guardarCompra(comp);
@@ -79,17 +72,17 @@ public class CompraController {
 	
 	@GetMapping("/compra/borrar/{id}")
 	public ModelAndView getCompraDeletPage(@PathVariable(value = "id")Long id) {
-		ModelAndView modelView = new ModelAndView("redirect:/compra/lista");
+		ModelAndView modelView = new ModelAndView("redirect:/compra/listado");
 		compraService.deleteCompraById(id);
 		return modelView;
 	}
 
 	@GetMapping("/compra/editar/{id}")
 	public ModelAndView getCompraModPage(@PathVariable(value = "id")Long id) {
-		ModelAndView modelView=new ModelAndView("nuevo");
-		Optional<Compra> compra=compraService.getCompraById(id);
+		ModelAndView modelView=new ModelAndView("compra");
+		Compra compra=compraService.getCompraById(id).get();
 		modelView.addObject("compra", compra);
-
+		modelView.addObject("producto",productoService.getAllProductos());
 		return modelView;
 	}
 	
