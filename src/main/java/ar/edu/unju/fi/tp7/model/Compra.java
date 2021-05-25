@@ -1,6 +1,5 @@
 package ar.edu.unju.fi.tp7.model;
 
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +20,7 @@ import org.springframework.stereotype.Component;
 public class Compra {
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="COM_ID")
 	private Long id;
 	
