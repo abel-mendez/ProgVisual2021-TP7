@@ -22,11 +22,11 @@
 				        <div class="card-header bg-danger text-white text-center">FORMULARIO-COMPRA</div>
 				        <div class="card-body">
 				        	<form th:action="@{/compra/guardar}" th:object="${compra}" method="get">
-							   <div class="form-group">
+							   <!--<div class="form-group">
 							    <label for="id">ID </label>
 								<input required th:field="*{id}" id="id" class="form-control" type="number" name="id" placeholder="Ingrese ID"
 								>
-							   </div>
+							   </div>-->
 							   <div class="form-group">
 							    <label for="codigo">Codigo</label>
 							   <select name="codigo" id="codigo" class="form-select" aria-label="Default select example">

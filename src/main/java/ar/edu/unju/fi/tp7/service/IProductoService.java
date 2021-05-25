@@ -17,7 +17,7 @@ public interface IProductoService {
 	
 	public List<Producto> getAllProductos();
 	//14-5 VDE
-	public Producto getUnProducto(int codigo);
+	public Optional <Producto> getUnProducto(int codigo);
 	
 	public void deleteProducto(int id);
 }

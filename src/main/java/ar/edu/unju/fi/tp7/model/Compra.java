@@ -27,7 +27,7 @@ public class Compra {
 	
 	@Autowired
 	@ManyToOne(fetch= FetchType.LAZY)
-	//@JoinColumn(name="PRO_CODIGO")
+	@JoinColumn(name="PRO_CODIGO")
 	private Producto producto;
 	
 	@Column(name="COM_CANTIDAD")
