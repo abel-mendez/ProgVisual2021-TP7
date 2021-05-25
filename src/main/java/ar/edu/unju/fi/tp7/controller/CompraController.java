@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.tp7.model.Compra;
+import ar.edu.unju.fi.tp7.model.Producto;
 import ar.edu.unju.fi.tp7.service.ICompraService;
 import ar.edu.unju.fi.tp7.service.IProductoService;
 
@@ -21,6 +22,7 @@ import ar.edu.unju.fi.tp7.service.IProductoService;
 public class CompraController {
 	
 	@Autowired
+	@Qualifier("compraServiceMysql")
 	private ICompraService compraService;
 	@Autowired
 	@Qualifier("productoServiceImpMysql")
@@ -33,9 +35,16 @@ public class CompraController {
 			@RequestParam(name="id")String id,
 			@RequestParam(name="codigo")String codigo) {
 		Compra comp = new Compra();
-		comp.setCantidad(Integer.valueOf(cantidad));
 		comp.setId(Long.valueOf(id));
-		comp.setProducto(this.productoService.getUnProducto(Integer.valueOf(codigo)));
+		comp.setCantidad(Integer.valueOf(cantidad));
+		Optional <Producto> productoOP= this.productoService.getUnProducto(Integer.valueOf(codigo));
+		Producto producto=new Producto();
+		producto.setCodigo(productoOP.get().getCodigo());
+		producto.setMarca(productoOP.get().getMarca());
+		producto.setNombre(productoOP.get().getNombre());
+		producto.setPrecio(productoOP.get().getPrecio());
+		System.out.println("descripcion del producto"+producto);
+		comp.setProducto(producto);
 		comp.setTotal(comp.getTotal());
 		LOGGER.info("CONTROLLER : CompraController with /guardarCompra post method");
 		compraService.guardarCompra(comp);
