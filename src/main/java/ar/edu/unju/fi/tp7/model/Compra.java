@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 public class Compra {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="COM_ID")
 	private Long id;
 	

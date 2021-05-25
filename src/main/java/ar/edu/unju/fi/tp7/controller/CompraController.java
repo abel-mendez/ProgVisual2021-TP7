@@ -32,8 +32,10 @@ public class CompraController {
 
 	@GetMapping("/compra/guardar")
 	public String getAddCompraGuardarPage(Model model,@RequestParam(name="cantidad")String cantidad,
+			@RequestParam(name="id")String id,
 			@RequestParam(name="codigo")String codigo) {
 		Compra comp = new Compra();
+		comp.setId(Long.valueOf(id));
 		comp.setCantidad(Integer.valueOf(cantidad));
 		Optional <Producto> productoOP= this.productoService.getUnProducto(Integer.valueOf(codigo));
 		Producto producto=new Producto();
