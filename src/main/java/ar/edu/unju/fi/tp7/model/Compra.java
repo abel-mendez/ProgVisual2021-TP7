@@ -27,8 +27,8 @@ public class Compra {
 	
 	@Autowired
 	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name="PRO_CODIGO")
-	private Optional<Producto> producto;
+	//@JoinColumn(name="PRO_CODIGO")
+	private Producto producto;
 	
 	@Column(name="COM_CANTIDAD")
 	private int cantidad;
@@ -46,7 +46,7 @@ public Compra() {
  * @param cantidad
  * @param total
  */
-public Compra(Optional<Producto> producto, int cantidad) {
+public Compra(Producto producto, int cantidad) {
 	super();
 	this.producto = producto;
 	this.cantidad = cantidad;
@@ -73,16 +73,16 @@ public void setId(Long id) {
 /**
  * @return the producto
  */
-public Optional<Producto> getProducto() {
+public Producto getProducto() {
 	return producto;
 }
 
 
 /**
- * @param producto the producto to set
+ * @param producto2 the producto to set
  */
-public void setProducto(Optional<Producto> producto) {
-	this.producto = producto;
+public void setProducto(Producto producto2) {
+	this.producto = producto2;
 }
 
 
@@ -118,7 +118,7 @@ public String toString() {
 
 
 public double getTotal() {
-	this.total=this.producto.get().getPrecio()*this.cantidad;
+	this.total=this.producto.getPrecio()*this.cantidad;
 	return this.total;
 }
  

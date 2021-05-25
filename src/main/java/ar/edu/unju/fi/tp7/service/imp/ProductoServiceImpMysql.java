@@ -53,10 +53,10 @@ public class ProductoServiceImpMysql implements IProductoService {
 	}
 
 	@Override
-	public Optional<Producto> getUnProducto(int codigo) {
+	public Producto getUnProducto(int codigo) {
 		Optional<Producto> prod;
-		prod= productoRepo.findById(codigo);
-		return prod;
+		//prod= productoRepo.findById(codigo);
+		return null;
 	}
 
 	@Override

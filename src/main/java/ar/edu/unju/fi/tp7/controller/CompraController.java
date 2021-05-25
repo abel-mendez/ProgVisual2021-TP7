@@ -21,6 +21,7 @@ import ar.edu.unju.fi.tp7.service.IProductoService;
 public class CompraController {
 	
 	@Autowired
+	@Qualifier("compraServiceMysql")
 	private ICompraService compraService;
 	@Autowired
 	@Qualifier("productoServiceImpMysql")

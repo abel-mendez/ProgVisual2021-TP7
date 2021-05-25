@@ -72,7 +72,7 @@ public class ProductoServiceImp implements IProductoService {
 	
 	//14-5 Se busca un producto por codigo 
 	@Override
-	public Optional<Producto> getUnProducto(int codigo) {
+	public Producto getUnProducto(int codigo) {
 		// TODO Auto-generated method stub
 		Producto prod =new Producto();
 		//for each
