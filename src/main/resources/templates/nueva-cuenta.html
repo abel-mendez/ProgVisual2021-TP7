@@ -29,13 +29,19 @@
 								 <input required id="Saldo" th:field="*{saldo}" class="form-control" type="number" step="0.01" name="saldo" placeholder="Ingrese el Saldo"
 								 >
 							    </div>
+							    <div class="form-group">
+							    	<select th:field="*{cliente.id}" name="cliente" id="cliente" class="form-select" >
+								  		<option th:each="c: ${clientes}" th:value="${c.id}" ><span th:text="${c.nombreApellido}" ></span></option>
+									</select>
+							    </div>
+							    
 							   <div class="form-group">
 							    <label for="fecha">Fecha de creacion</label>
 								<input required id="fecha" th:field="*{fechaCreacion}" class="form-control" type="date" name="fecha">
 							   </div>
 								<div class="form-group">
 								<label for="estado">Estado de la cuenta</label>
-									<select required class="form-control "id="estado" th:field="*{estado}">
+									<select name="estado" required class="form-control "id="estado" th:field="*{estado}">
 										<option value="activa" selected>Activa </option>
 										<option value="inactiva"> Inactiva</option>
 										
