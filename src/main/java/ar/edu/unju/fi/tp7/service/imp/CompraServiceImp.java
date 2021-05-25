@@ -43,7 +43,7 @@ public class CompraServiceImp implements ICompraService {
 	public void generarTablaCompra() {
 		// TODO Auto-generated method stub
 		this.compras=TablaCompra.listCompras;
-		this.compras.add(new Compra( new Producto(0, "Galleta", 25.6, "pepitos", 2), 3));
+		//this.compras.add(new Compra( new Producto(0, "Galleta", 25.6, "pepitos", 2), 3));
 		LOGGER.info("RESULT : CREA LISTA DE CLIENTES");
 	}
 

@@ -118,7 +118,7 @@ public String toString() {
 
 
 public double getTotal() {
-	this.total=this.producto.getPrecio()*this.cantidad;
+	this.total=this.producto.get().getPrecio()*this.cantidad;
 	return this.total;
 }
  
