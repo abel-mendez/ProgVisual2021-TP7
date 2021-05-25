@@ -87,7 +87,6 @@ public class ProductoController {
 		producto.setNombre(productoOP.get().getNombre());
 		producto.setPrecio(productoOP.get().getPrecio());
 		modelView.addObject("producto", producto);
-		
 		return modelView;
 	}
 	
