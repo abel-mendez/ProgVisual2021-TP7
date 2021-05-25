@@ -6,13 +6,17 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 @Entity
@@ -21,6 +25,7 @@ import org.springframework.stereotype.Component;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="cli_Id")
 	private Long id;
 	@Column(name = "cli_DNI")
 	private int nroDocumento;
@@ -44,6 +49,10 @@ public class Cliente {
 	@Column(name = "cli_FechaUComp")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra;
+	//@Autowired
+	//@OneToOne(cascade = CascadeType.ALL)
+	//@JoinColumn(name="cue_Id")
+	//private Cuenta cuenta;
 	
 	
 	public Cliente() {
@@ -278,5 +287,14 @@ public class Cliente {
 		return "Tiempo hasta proximo cump: "+texto;
 
 	}
+
+
+
+
+	/*
+	 * public Cuenta getCuenta() { return cuenta; }
+	 * 
+	 * public void setCuenta(Cuenta cuenta) { this.cuenta = cuenta; }
+	 */
 	
 }

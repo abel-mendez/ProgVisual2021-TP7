@@ -28,20 +28,20 @@
 				</tr>
 			</thead>
 			<tbody class="tbody-light">
-				<tr >
-					<td ></td>
-					<td ></td>
-					<td ></td>
-					<td ></td>
+				<tr th:each="cu: ${cuentas}" >
+					<td th:text="${cu.id}"></td>
+					<td th:text="${cu.saldo}"></td>
+					<td th:text="${cu.fechaCreacion}"></td>
+					<td th:text="${cu.estado}"></td>
 					<td> 
-						<button class="btn btn-success" >Modificar</button>
-						<button class="btn btn-danger " >Eliminar</button>
+						<a th:href="@{/cuenta/editar/}+${cu.id}" class="btn btn-success">Editar</a>
+						<a th:href="@{/cuenta/borrar/}+${cu.id}" class="btn btn-danger">Borrar</a>
 					 </td>
 				</tr>
 			</tbody>
 			</table> 
 			</div>
-			<a href="/compra" class="btn btn-danger">Volver al formulario</a>
+			<a href="/cuenta/nueva" class="btn btn-danger">Volver al formulario</a>
 		</section>
 		
 		<aside th:replace="/layout/publicity :: publicity"></aside>
