@@ -33,8 +33,8 @@
 					<td th:text="${c.cantidad}"></td>
 					<td th:text="${c.getTotal()}"></td>
 					<td> 
-						<button class="btn btn-success" >Modificar</button>
-						<button class="btn btn-danger " >Eliminar</button>
+					<a th:href="@{/compra/editar/}+${c.id}" class="btn btn-success" >Modificar</a>
+						<a th:href="@{/compra/borrar/}+${c.id}" class="btn btn-danger " >Borrar</a>
 					 </td>
 				</tr>
 			</tbody>
