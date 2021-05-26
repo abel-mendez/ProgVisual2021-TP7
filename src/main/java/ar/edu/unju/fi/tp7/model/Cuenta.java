@@ -32,7 +32,7 @@ public class Cuenta {
 	private String estado;
 	
 	@Autowired
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true )
 	@JoinColumn(name="cli_Id")
 	private Cliente cliente;
 	

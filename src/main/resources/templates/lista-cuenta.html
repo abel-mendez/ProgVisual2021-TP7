@@ -24,6 +24,7 @@
 					<th>SALDO</th>
 					<th>FECHA DE CREACION</th>
 					<th>ESTADO</th>
+					<th>CLIENTE ID</th>
 					<th>ACCIONES</th>
 				</tr>
 			</thead>
@@ -33,6 +34,7 @@
 					<td th:text="${cu.saldo}"></td>
 					<td th:text="${cu.fechaCreacion}"></td>
 					<td th:text="${cu.estado}"></td>
+					<td th:text="${cu.cliente.id}"></td>
 					<td> 
 						<a th:href="@{/cuenta/editar/}+${cu.id}" class="btn btn-success">Editar</a>
 						<a th:href="@{/cuenta/borrar/}+${cu.id}" class="btn btn-danger">Borrar</a>
