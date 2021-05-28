@@ -9,6 +9,7 @@ import java.time.temporal.ChronoUnit;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,10 +50,10 @@ public class Cliente {
 	@Column(name = "cli_FechaUComp")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra;
-	//@Autowired
-	//@OneToOne(cascade = CascadeType.ALL)
-	//@JoinColumn(name="cue_Id")
-	//private Cuenta cuenta;
+	@Autowired
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="cue_Id")
+	private Cuenta cuenta;
 	
 	
 	public Cliente() {
@@ -205,11 +206,11 @@ public class Cliente {
 
 	public int getEdad() {
 		
-	    edad = 0;
+	    this.edad = 0;
 		LocalDate hoy = LocalDate.now();
 		Period periodo = Period.between(fechaNacimiento, hoy);
-		edad = periodo.getYears();
-			return edad;
+		this.edad = periodo.getYears();
+			return this.edad;
 		}
 	
 	
@@ -231,9 +232,6 @@ public class Cliente {
 		this.edad = edad;
 	}
 
-	
-
-
 
 	@Override
 	public String toString() {
@@ -241,9 +239,8 @@ public class Cliente {
 				+ ", nombreApellido=" + nombreApellido + ", email=" + email + ", password=" + password
 				+ ", fechaNacimiento=" + fechaNacimiento + ", edad=" + edad + ", codigoAreaTelefono="
 				+ codigoAreaTelefono + ", nroTelefono=" + nroTelefono + ", fechaUltimaCompra=" + fechaUltimaCompra
-				+ "]";
+				+ ", cuenta=" + cuenta + "]";
 	}
-
 
 
 
@@ -291,10 +288,14 @@ public class Cliente {
 
 
 
-	/*
-	 * public Cuenta getCuenta() { return cuenta; }
-	 * 
-	 * public void setCuenta(Cuenta cuenta) { this.cuenta = cuenta; }
-	 */
+	
+	  public Cuenta getCuenta() { 
+		  return cuenta; 
+	  }
+	  
+	  public void setCuenta(Cuenta cuenta) {
+		  this.cuenta = cuenta;
+	  }
+	 
 	
 }
