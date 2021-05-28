@@ -39,12 +39,14 @@ public class ClienteController {
 	}
 	
 	@PostMapping("/cliente/guardar")
-	public ModelAndView guardarCliente(@ModelAttribute("cliente") Cliente cliente) {
+	public ModelAndView guardarCliente(@ModelAttribute("cliente") Cliente uncliente) {
 		LOGGER.info("CONTROLLER : ClienteController with / cliente/guardar post method");
 		LOGGER.info("METHOD : guardarCliente()");
 		LOGGER.info("RESULT : VISUALIZA LA PAGINA clientes.html");
+		//vista
 		ModelAndView modelView = new ModelAndView("clientes");
-		clienteService.guardarCliente(cliente);
+		clienteService.guardarCliente(uncliente);
+		//en la vista clientes  se obtiene todos los clientes
 		modelView.addObject("clientes",clienteService.getAllClientes());
 		
 		return modelView;
@@ -57,9 +59,9 @@ public class ClienteController {
 		LOGGER.info("CONTROLLER : ClienteController with / cliente/listado get method");
 		LOGGER.info("METHOD : getClientesPage()");
 		ModelAndView modelView = new ModelAndView("clientes");
-		if (clienteService.getAllClientes() == null) {
-			clienteService.generarTablaCLiente();
-		}
+//		if (clienteService.getAllClientes() == null) {
+//			clienteService.generarTablaCLiente();
+//		}
 		modelView.addObject("clientes",clienteService.getAllClientes());
 		LOGGER.info("RESULT : VISUALIZA LA PAGINA clientes.html");
 		return modelView;
@@ -70,6 +72,7 @@ public class ClienteController {
 	public ModelAndView getClienteModPage(@PathVariable(value = "id")Long id) {
 		ModelAndView modelView=new ModelAndView("nuevocliente");
 		Optional<Cliente> cliente=clienteService.getClienteById(id);
+		//Cliente cliente =clienteService.getClientePorId(id);
 		modelView.addObject("cliente", cliente);
 		
 		return modelView;

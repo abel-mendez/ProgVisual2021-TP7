@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Component;
 @Component("unaCuenta")
 public class Cuenta {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cue_Id")
 	private Long id;
 	@Column(name="cue_Saldo")
@@ -31,9 +32,10 @@ public class Cuenta {
 	@Column(name="cue_Estado")
 	private String estado;
 	
-	@Autowired
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true )
-	@JoinColumn(name="cli_Id")
+//	@Autowired
+//	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true )
+//	@JoinColumn(name="cli_Id")
+	@OneToOne(mappedBy = "cuenta", fetch = FetchType.LAZY)
 	private Cliente cliente;
 	
 	public Cuenta() {

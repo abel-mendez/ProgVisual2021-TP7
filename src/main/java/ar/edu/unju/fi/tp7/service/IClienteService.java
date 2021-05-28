@@ -13,5 +13,6 @@ public interface IClienteService {
 	public Cliente getCliente();
 	public Optional<Cliente> getClienteById(Long id);
 	public void deletClienteById(Long id);
+	public Cliente getClientePorId(int id);
 
 }
